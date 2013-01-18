@@ -4,8 +4,30 @@
 There is no winner, but Sass seems to have the momentum. 
 LESS used by Twitter Bootstrap; SASS by Zurb Foundation.
 
-## Variables
+## Why use a preprocessor?
 
-## Mixins, placeholders and extentions
+### Variables
+Easy reference to 
 
-## Code organization
+### Code organization
+Partials and 
+
+### Functions
+
+### Placeholders and extentions
+
+## Why not use a preprocessor?
+
+## Tools of the trade
+
+### Compass
+
+* Mixins
+* Code opimization
+* Sprites
+
+### LESS.app and Codekit
+
+
+
+
