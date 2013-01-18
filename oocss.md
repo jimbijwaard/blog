@@ -1,4 +1,4 @@
-# My Take on CSS, by Jim Bijwaard
+# My Take on object oriented CSS, by Jim Bijwaard
 
 ## Why Object oriented CSS?
 
@@ -7,7 +7,7 @@ Object Oriented CSS is an approach to writing CSS that’s fast, maintainable, a
 ### What defines a CSS Object?
 "Basically, a CSS “object” is a repeating visual pattern, which can be abstracted into an independent snippet of HTML, CSS, and possibly JavaScript. Once created, an object can then be reused throughout a site."
 
-By abstracting these components, a developer is able to reduce a lot of repetition from the CSS code, and make the CSS much more predictable and maintainable. 
+By abstracting these components, a developer is able to reduce a lot of repetition from the CSS code, and make the CSS much more predictable and maintainable.
 
 For instance, the [media](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) object describes a content block containing a fixed-size media element (e.g. image or video) along with other variable-size content (e.g. text). Another example is the module object, which describes a generic content block with a required body area and optional header and footer areas.
 
@@ -25,8 +25,8 @@ By referencing these classes in your stylesheets (say, rather than directly styl
 ### Separate container and content
 Essentially, this means “rarely use location-dependent styles”. An object should look the same no matter where you put it. So instead of styling a specific ``<h2>`` with ``.myObject h2 {…}``, create and apply a class that describes the ``<h2>`` in question, like ``<h2 class="category">``.
 
-This gives you the assurance that: (1) all unclassed ``<h2>``s will look the same; (2) all elements with the category class (called a mixin) will look the same; and 3) you won’t need to create an override style for the case when you actually do want ``.myObject h2`` to look like the normal ``<h2>``. 
-> An object should be open to extention, but closed to modification. 
+This gives you the assurance that: (1) all unclassed ``<h2>``s will look the same; (2) all elements with the category class (called a mixin) will look the same; and 3) you won’t need to create an override style for the case when you actually do want ``.myObject h2`` to look like the normal ``<h2>``.
+> An object should be open to extention, but closed to modification.
 
 In many large-scale websites there are occations where a block can be reused, but needs to be slightly adapted. Often, developers choose to make a block context-specific by applying a different styling based on the parent item as shown in the example below.
 
@@ -35,23 +35,23 @@ In many large-scale websites there are occations where a block can be reused, bu
       color: black;
       padding:10px;
     }
-    
+
     #right-sidebar .block {
       padding: 20px;
       width: 200px;
       background: orange;
       color:#000;
     }
-    
+
     #right-sidebar .sub-content .block {
       padding:10px;
       background: transparent;
       color:#fff;
     }
-    
-In small projects this often doesn't lead to any problems, however when a project becomes bigger this could lead to code-repetition and inconsistencies. 
 
-This method of 'context-specific' styling has two problems. 
+In small projects this often doesn't lead to any problems, however when a project becomes bigger this could lead to code-repetition and inconsistencies.
+
+This method of 'context-specific' styling has two problems.
 1. In large teams, each developer should be able to depend on a consistent behavior when applying styling. When styling is context-specific this might lead to unexpected behavior.
 2. However the application of the ``.block`` class is not predictable. Because the styling is not predictable, developers might need to add additional styling to achieve the desired result.
 
@@ -62,13 +62,13 @@ A better solution would be to define a ``.block`` module, and extend it for spec
       color: black;
       width: 100%;
     }
-    
+
     .block .block--constrained {
       width: 200px;
       padding: 10px;
       margin:10px;
     }
-    
+
     .block block--emphasis {
       border: 1px solid black;
       background: orange;
@@ -87,15 +87,15 @@ In this example the block module can be reused for different content-containers.
             <div class="block block--constrained block--emphasis"> … </div>
         </div>
     </div>
-    
+
 ##Seperation of responsibility between classes.
-In object-oriented programming, the single responsibility principle states that: 
-> every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility. 
+In object-oriented programming, the single responsibility principle states that:
+> every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility.
 
 This [SPR](http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/) can also be applied in OOCSS. Take the following example:
 
     <a href=/product class=promo>Buy now!</a>
-    
+
     .promo{
         display:block;
         padding:20px;
@@ -105,19 +105,19 @@ This [SPR](http://csswizardry.com/2012/04/the-single-responsibility-principle-ap
         text-shadow:0 0 1px rgba(0,0,0,0.25);
         border-radius:4px;
     }
-    
+
 In this case, the class doesn;t follow the SPR. The class, which styles a promotional box 1). positions a box and sets margins and spacing, and 2). Defines specific colors to attract attention.
 
 By seperating the concern of this class in two seperate classes we get the following code:
 
     <a href=product class="box promo">Buy now!</a>
-    
+
     .box{
         display:block;
         padding:20px;
         margin-bottom:20px;
     }
-    
+
     .promo{
         background-color:#09f;
         color:#fff;
@@ -143,7 +143,7 @@ Applying this methodology has several benefits:
 
 
 ## CSS Styleguide
-A styleguide is used to ensure all developers in a team use the same method for naming ID's and Classes. These guidelines enourage the use of exisiting, common and sensible patterns. 
+A styleguide is used to ensure all developers in a team use the same method for naming ID's and Classes. These guidelines enourage the use of exisiting, common and sensible patterns.
 
 These days most people write CSS with hyphens as word separators. But hyphens alone are usually not enough to distinguish between different types of classes.
 
@@ -151,37 +151,37 @@ Expanding on the work of Nicolas Galagher, [Philip Walton](http://engineering.ap
 
     /* A component */
     .btn-group { }
-    
+
     /* A component modifier (modifying .button) */
     .btn-primary { }
-    
+
     /* A component sub-object (lives within .button) */
     .btn-icon { }
-    
+
     /* Is this a component class or a layout class? */
     .header { }
-    
+
 A more logical, human understandable and readable structure would be:
 
     /* A component */
     .btn-group { }
-    
+
     /* A component modifier (modifying .button) */
     .btn--primary { }
-    
+
     /* A component sub-object (lives within .button) */
     .btn__icon { }
-    
+
     /* A layout class */
     .l-header { }
-    
+
     /* State Rules */
     .is-state-type
-    
+
     /* Non-styled JavaScript Hooks */
     .js-action-name
-    
-        
+
+
 Sub-objects are prefixed with the module name. Some might argue that an .icon sub-element can be safely styled by using .btn.icon without having to worry about the styles spilling over to any other elements styled with the same class, however, this doesn’t prevent the styling of classes with those same names from spilling into this component. Read more about the [Open/Closed principle of CSS](]http://csswizardry.com/2012/06/the-open-closed-principle-applied-to-css/) on Harry Roberts Blog. Or take a look at this [presentation](http://lanyrd.com/2012/sxsw-interactive/spmqc/) by Andy Hume.
 
 The `.js-action-name` tag is solely used to target elements trough javascript and shouldn't contain any styling. There is discussion about either using `.js-` classes or ``data-attributes``. Both have their merits, but Philip Walton makes a strong case for using `.js-` classes [based on performance](http://jsperf.com/class-vs-data-attribute-selector-performance).
@@ -192,22 +192,22 @@ The following piece of code shows a good example of defining a module. The code 
     /* BASE BUTTON */
 
     .btn{
-        display:inline-block;    
-        vertical-align:middle;   
-        cursor:pointer;          
-        color:#fff;              
+        display:inline-block;
+        vertical-align:middle;
+        cursor:pointer;
+        color:#fff;
         background-color:#999;
         border-radius: 3px;
         line-height: 3em;
         padding-right: 1em;
-        padding-left: 1em;   
+        padding-left: 1em;
     }
-    
+
     .btn,
     .btn:hover{
         text-decoration:none;
     }
-    
+
     .btn__icon{
         font-family: 'icon-font';
         display:inline-block;
@@ -215,38 +215,38 @@ The following piece of code shows a good example of defining a module. The code 
         height:16px;
     }
 
-    /* BUTTON SIZES */ 
-   
+    /* BUTTON SIZES */
+
     .btn--small{
         padding-right:0.5em;
         padding-left: 0.5em;
         line-height:2;
     }
-    
+
     .btn--large{
         padding-right:1.5em;
         padding-left: 1.5em;
         line-height:4;
     }
-    
+
 
     .btn--full{
         width:100%;
-        padding-right:0;            
-        padding-left: 0;            
+        padding-right:0;
+        padding-left: 0;
         text-align:center;
     }
-    
-    /* BUTTON SHAPES */ 
-    
+
+    /* BUTTON SHAPES */
+
     .btn--round{
-        border-radius:999px;        
+        border-radius:999px;
     }
-    
+
     .btn--square{
         border-radius:0;
     }
-   
+
 
 ## Code Organization
 
@@ -272,7 +272,7 @@ One specific css file (which is referenced in the index.html) imports  base.css,
        | --module-2.css
        | --module-3.css
        | --module-4.css
-      
+
 
 These files should be further optimized trough concatination and compression in order to reduce HTTP-requests and filesize. This can be done trough [GruntJS](www.grunt.com) or the [r.js optimizer](www.requirejs.com) of RequireJS. Otherwise a CSS-preprocessor like [Sass](www.sass.com) can help with the optimization process, as well as add several other benefits.
 
