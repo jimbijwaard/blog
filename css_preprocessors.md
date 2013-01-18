@@ -1,5 +1,7 @@
 # CSS Preprocessors; use and usefullness
 
+## What is a preprocessor
+
 ## Sass/Less debate
 There is no winner, but Sass seems to have the momentum. 
 LESS used by Twitter Bootstrap; SASS by Zurb Foundation.
@@ -25,6 +27,7 @@ Prefixes
 * Development is teamwork
 * Preprocessors might be a hype
 * CSS Variables are coming
+* Workflow
 
 ## Tools of the trade
 
