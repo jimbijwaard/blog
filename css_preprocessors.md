@@ -1,5 +1,7 @@
 # CSS Preprocessors; use and usefullness
 
+There is active debate on the use and usefullness of CSS pre-processors across the web. This article details my experiences with using CSS-Preprocessors in a team environment at Sunday Afternoon, a Dutch service design company.
+
 ## What is a preprocessor
 
 ## Sass/Less debate
@@ -44,3 +46,10 @@ Prefixes
 ### Yeoman
 
 
+## Sources and related articles
+
+- http://lea.verou.me/2011/03/on-css-preprocessors/
+- http://blog.urbaninsight.com/2012/04/12/ten-reasons-you-should-be-using-css-preprocessor
+- http://aaronrussell.co.uk/articles/in-defence-of-css-preprocessors/
+- http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
+- http://css-tricks.com/sass-vs-less/
