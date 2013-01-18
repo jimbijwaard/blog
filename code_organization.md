@@ -1,4 +1,4 @@
-## Code Organization
+## CSS Code Organization
 
 Jonathan Snook offers a stucture for CSS organization in his book SMACSS, in which he presents his view on DRY and maintainable CSS. The structure he proposes is organized in 5 levels of specificity:
 
@@ -15,6 +15,9 @@ One specific css file (which is referenced in the index.html) imports  base.css,
     --css/
      | --app.css
      | --base.css
+     | --base/
+       | --general.css
+       | --reset.css
      | --layout.css
      | --modules.css
      | --modules/
