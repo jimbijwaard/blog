@@ -47,6 +47,7 @@ Prefixes
 * Sprites
 
 ### LESS.app and Codekit
+When first starting out with Sass or Less, it could be a bit daunting to use the command line tools provided. If you prefer (or need) a GUI check out CodeKit or it's little brother Less.app. Both tools are developed by Bryan Jones and are immensely usefull for front-end developers. CodeKit especially is a full-features front-end tool which optimizes CSS, Javascript and even compresses images without reduction of quality.
 
 ### Yeoman
 
